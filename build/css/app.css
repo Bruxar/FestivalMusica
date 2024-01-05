@@ -359,12 +359,86 @@ h3 {
 }
 .header h1 {
   color: #fff;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .header h1 {
+    margin: 0;
+  }
+}
+.header .contenido-header {
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .header .contenido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
+@media (min-width: 768px) {
+  .navegacion-principal {
+    display: flex;
+    gap: 2rem;
+  }
+}
 .navegacion-principal a {
   color: #fff;
   font-size: 2.4rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .navegacion-principal a {
+    margin: 0;
+  }
 }
 .navegacion-principal a:hover {
   color: #fef46d;
+}
+
+.video {
+  position: relative;
+  max-height: 70rem;
+  min-height: 50rem;
+  overflow: hidden;
+}
+.video .overlay {
+  position: absolute;
+  background: rgb(233, 4, 195);
+  background: linear-gradient(270deg, rgba(233, 4, 195, 0.3043592437) 0%, rgba(254, 1, 106, 0.2987570028) 100%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.video video {
+  width: auto;
+  display: block;
+}
+@media (min-width: 992px) {
+  .video video {
+    width: 100%;
+  }
+}
+
+.contenedor-video {
+  z-index: 2;
+}
+.contenedor-video h2 {
+  color: #fff;
+  font-size: 7rem;
+  margin: 0;
+}
+.contenedor-video p {
+  background-color: #f53756;
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
 }
