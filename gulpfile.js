@@ -3,12 +3,19 @@ const { src, dest, watch, parallel } = require('gulp'); // Importar gulp
 // CSS - SASS
 const sass = require('gulp-sass')(require('sass')); // Importar gulp-sass
 const plumber = require('gulp-plumber'); // Importar gulp-plumber
+const autoprefixer = require('autoprefixer'); // Importar autoprefixer
+const cssnano = require('cssnano'); // Importar cssnano
+const postcss = require('gulp-postcss'); // Importar gulp-postcss
+const sourcemaps = require('gulp-sourcemaps'); // Importar gulp-sourcemaps
 
 //Imagenes
 const cache = require('gulp-cache'); // Importar gulp-cache
 const imagemin = require('gulp-imagemin'); // Importar gulp-imagemin
 const webp = require('gulp-webp'); // Importar gulp-webp
 const avif = require('gulp-avif'); // Importar gulp-avif
+
+//Javascript
+const terser = require('gulp-terser-js'); // Importar gulp-terser-js
 
 function css(done){
 
@@ -17,8 +24,11 @@ function css(done){
     // 3. Almacenar archivo
 
     src('src/scss/**/*.scss') // Indicamos la ruta del archivo
+        .pipe(sourcemaps.init())
         .pipe( plumber()) // Ejecutamos plumber
         .pipe( sass() ) // Compilamos el archivo SASS
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(sourcemaps.write('.'))
         .pipe( dest('build/css') ); // Almacenamos el archivo en la carpeta build/css
 
     done(); // Callback que indica que la tarea ha terminado
