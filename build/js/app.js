@@ -39,6 +39,7 @@ function mostrarImagen(id) {
     overlay.onclick = function(){
         const body = document.querySelector('body');
         body.classList.remove('overlay');
+        body.classList.remove('fijar-body');
         overlay.remove();
     }
 

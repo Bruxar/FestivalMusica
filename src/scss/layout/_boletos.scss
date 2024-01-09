@@ -1,0 +1,52 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.seccion-boletos{
+    background-color: v.$verde;
+    padding: 5rem 0;
+    h3{
+        text-align: center;
+        color: v.$blanco;
+    }
+    .boletos{
+        @include m.tablet{
+            @include m.grid(2, 5rem);
+        }
+        
+    }
+}
+
+.boleto{
+    text-align: center;
+    padding: 2rem;
+    @include m.resetear-lista;
+    width: 100%;
+    .dia{
+        color: v.$blanco;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    .titulo{
+        color: v.$blanco;
+        text-transform: uppercase;
+        background-color: v.$rosa;
+        padding: .5rem;
+        margin: 0;
+    }
+    .descripcion{
+        text-align: start;
+        background-color: v.$blanco;
+        padding: 1rem;
+        border-bottom: 1px solid #9b9b9b;
+        &:nth-last-child(2){
+            border-bottom: none;
+        }
+        margin: 0;
+    }
+    .precio{
+        color: v.$blanco;
+        background-color: v.$morado;
+        margin: 0;
+        padding: 1rem;
+    }
+}
