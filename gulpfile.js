@@ -73,6 +73,7 @@ function versionAvif(done){
 
 function javascript(done){
     src('src/js/**/*.js')
+        .pipe(terser())
         .pipe(dest('build/js'));
 
     done();
